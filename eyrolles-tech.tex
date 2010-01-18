@@ -72,17 +72,17 @@ Ce comportement est décrit dans la Figure~\ref{figure:eyrolles_sladmin-actions}
 \subsubsection{Gestion de la vue}
 
 À la base, un module utilisant \textit{slAdminPlugin} doit posséder les cinq \textit{templates} suivants :
-\begin{itemize}
-	\item \texttt{listSuccess.php}, le \textit{template} affichant le listing des objets du modèle géré par le module, contenant par exemple les filtres, un tableau d'affichage et un pager ;
-	\item \texttt{listHeader.php}, le \textit{partial} affichant la ligne de titre du tableau de listing ;
-	\item \texttt{list_row.php}, le \textit{partial} affichant une ligne du tableau de listing ;
-	\item \texttt{newSuccess.php}, le \textit{template} affichant le formulaire de création d'objet ;
-	\item \texttt{editSuccess.php}, le \textit{template} affichant le formulaire d'édition d'objet.
-\end{itemize}
+\begin{description}
+	\item[\texttt{listSuccess.php}] -- le \textit{template} affichant le listing des objets du modèle géré par le module, contenant par exemple les filtres, un tableau d'affichage et un pager ;
+	\item[\texttt{listHeader.php}] -- le \textit{partial} affichant la ligne de titre du tableau de listing ;
+	\item[\texttt{list\_row.php}] -- le \textit{partial} affichant une ligne du tableau de listing ;
+	\item[\texttt{newSuccess.php}] -- le \textit{template} affichant le formulaire de création d'objet ;
+	\item[\texttt{editSuccess.php}] -- le \textit{template} affichant le formulaire d'édition d'objet.
+\end{description}
 
-Les éléments récurrents de ces vues comme le tableau d'affichage des objets ou le pager sont en réalité des \textit{widgets}, qui sont instanciés dans les actions de base de \textit{slAdminPlugin}. Le nom des classes de ces \textit{widgets} peuvent d'ailleurs être définis dans la classe de configuration du module. Les \textit{widgets} peuvent être affichés dans un \textit{template} comme le montre le Listing~***.
+Les éléments récurrents de ces vues comme le tableau d'affichage des objets ou le pager sont en réalité des \textit{widgets}, qui sont instanciés dans les actions de base de \textit{slAdminPlugin}. Le nom des classes de ces \textit{widgets} peuvent d'ailleurs être définis dans la classe de configuration du module. Les \textit{widgets} peuvent être affichés dans un \textit{template} comme le montre le Listing~\ref{listing:eyrolles_sladmin-template}.
 
-TODO LISTING
+\lstinputlisting[float, caption={Affichage de \textit{widgets} de \textit{slAdminPlugin} dans un \textit{template}}, label={listing:eyrolles_sladmin-template}]{code/eyrolles_sladmin-template.php}
 
 
 \subsection{Un module type : le référentiel des langues}
