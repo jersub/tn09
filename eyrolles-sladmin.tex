@@ -1,4 +1,3 @@
-\newpage
 \subsection{\textit{slAdminPlugin}}
 
 La plupart des vues du lot~2 de l'Intranet d'Eyrolles sont générées grâce au plugin Symfony \textit{slAdminPlugin}. Il a été développé en interne par Sensio Labs et est issu de l'abstraction du code d'un précédent projet. Il n'a rien à voir avec la fonctionnalité de génération d'administration intégrée à Symfony. C'est encore un plugin très jeune : Eyrolles est le premier projet qui l'utilise.
@@ -83,49 +82,3 @@ Ce comportement est décrit dans la Figure~\ref{figure:eyrolles_sladmin-actions}
 Les éléments récurrents de ces vues comme le tableau d'affichage des objets ou le pager sont en réalité des \textit{widgets}, qui sont instanciés dans les actions de base de \textit{slAdminPlugin}. Le nom des classes de ces \textit{widgets} peuvent d'ailleurs être définis dans la classe de configuration du module. Les \textit{widgets} peuvent être affichés dans un \textit{template} comme le montre le Listing~\ref{listing:eyrolles_sladmin-template}.
 
 \lstinputlisting[float, caption={Affichage de \textit{widgets} de \textit{slAdminPlugin} dans un \textit{template}}, label={listing:eyrolles_sladmin-template}]{code/eyrolles_sladmin-template.php}
-
-
-\subsection{Un module type : le référentiel des langues}
-\label{section:eyrolles_ref-langues} 
-
-TODO
-
-\subsection{Utilisation de l'héritage avec Doctrine}
-
-TODO
-
-\subsection{Gestion de la session utilisateur avec sfGuardDoctrinePlugin}
-
-TODO
-
-\subsection{Export dynamique des champs des projets du panier en CSV}
-
-TODO
-
-\subsection{Webservice des auteurs}
-
-TODO
-
-\subsection{Refactoring des webservices}
-
-TODO
-
-\subsection{Tâche d'initialisation des auteurs}
-
-TODO
-
-\subsection{Refactoring des tâches}
-
-TODO
-
-\subsection{Écriture de tests unitaires}
-
-TODO
-
-\subsection{Écriture de tests fonctionnels}
-
-TODO
-
-\subsection{Processus de mise en production}
-
-TODO
