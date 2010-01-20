@@ -1,16 +1,22 @@
 \subsection{Un module type : le référentiel des langues}
 \label{section:eyrolles_ref-langues}
 
-Le référentiel des langues est l'un des nombreux référentiels administrables de l'application décrits dans la partie~***. Il est implémenté sous la forme d'un module nommé \texttt{eyReferentialLanguage} qui utilise \asladmin.
+Le référentiel des langues est l'un des nombreux référentiels administrables de l'application décrits dans la partie~***.
 
-En effet, le module doit implémenter les fonctionnalités suivantes :
+Il est implémenté sous la forme d'un module nommé \texttt{eyReferentialLanguage} qui utilise \asladmin. En effet, le module doit offrir les fonctionnalités suivantes, qui sont offertes par défaut par le plugin :
 \begin{itemize}
 \item le listings des langues contenues dans la base de données ;
 \item l'ajout et la modification d'une langue ;
 \item la suppression d'une langue.
 \end{itemize}
 
+Le module des langues a été choisi pour être décrit car il peut être considéré comme un module qui, tout en restant simple, est typique de l'application. Les paragraphes suivants rentrent dans le détail de son implémentation.
+
+
+\subsubsection{Arborescence}
+
 L'arborescence de \texttt{eyReferentialLanguage} suit les règles classiques d'organisation d'un module Symfony et intègre les fichiers nécessaires au bon fonctionnement de \asladmin\ :
+
 \begin{verbatim}
 eyReferentialLanguage/
   actions/
@@ -26,3 +32,23 @@ eyReferentialLanguage/
 \end{verbatim}
 
 L'organisation des fichiers de \atemplate\ ne suit pas exactement les consignes énoncées en partie~\ref{section:eyrolles_sladmin_view}. En effet, dans la classe de configuration, on a préféré utiliser le nom de \apartial\ \texttt{listTableRow} au lieu de \texttt{list\_row}. Par ailleurs, le \apartial\ \texttt{form} est appelé dans le \atemplate\ \texttt{new}.
+
+
+\subsubsection{Schéma de la base de données}
+
+TODO
+
+
+\subsubsection{Configuration}
+
+TODO
+
+
+\subsubsection{Actions}
+
+TODO
+
+
+\subsubsection{Affichage de la vue}
+
+TODO
