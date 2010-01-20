@@ -1,6 +1,6 @@
 \subsection{\asladmin}
 
-La plupart des vues du lot~2 de l'Intranet d'Eyrolles sont générées grâce au plugin Symfony \asladmin. Il a été développé en interne par Sensio Labs et est issu de l'abstraction du code d'un précédent projet. Il n'a rien à voir avec la fonctionnalité de génération d'administration intégrée à Symfony. C'est encore un plugin très jeune : Eyrolles est le premier projet qui l'utilise.
+La plupart des vues du \alotdeux\ de l'Intranet d'Eyrolles sont générées grâce au plugin Symfony \asladmin. Il a été développé en interne par Sensio Labs et est issu de l'abstraction du code d'un précédent projet. Il n'a rien à voir avec la fonctionnalité de génération d'administration intégrée à Symfony. C'est encore un plugin très jeune : Eyrolles est le premier projet qui l'utilise.
 
 \begin{table}
 	\centering
@@ -40,7 +40,7 @@ La classe de configuration permet de stocker les différents paramètres qui ser
 
 Une classe de configuration doit satisfaire les conditions suivantes :
 \begin{itemize}
-	\item elle doit être placée dans le dossier \texttt{lib/config} du module et doit être nommée \texttt{slAdminConfigurationMonNomDeModule};
+	\item elle doit être placée dans le dossier \texttt{lib/config} du module et doit être nommée \texttt{slAdminConfigurationMonNomDeModule} ;
 	\item elle doit hériter de la classe abstraite \texttt{slBaseAdminConfiguration} du plugin, qui contient la liste de toutes les options disponibles (cf. Figure~\ref{figure:eyrolles_sladmin_config}) ;
 	\item la définition des paramètres personnalisés doit se faire dans la méthode \texttt{configure()} surchargée.
 \end{itemize}
@@ -90,4 +90,15 @@ Les éléments récurrents de ces vues comme le tableau d'affichage des objets o
 
 \subsubsection{Surcharge de \asladmin\ pour les besoins de l'application}
 
-Comme la plupart des modules de l'application utilisent \asladmin, les classes TODO
+Comme la plupart des modules de l'application d'Eyrolles utilisent \asladmin, des classes propres au projet ont été insérées entre les classes \texttt{slAdmin} à surcharger habituellement et les classes des différents modules. En fait, ajouter un couche intermédiaire a l'avantage de permettre de personnaliser le comportement de la librairie utilisée tout en la gardant intacte. Il reste alors tout à fait possible de mettre à jour la libraire sans avoir à ré-appliquer les modifications propres au projet.
+
+Cette organisation est illustrée dans la Figure~\ref{eyrolles_sladmin_surcharge}.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.4]{eyrolles_sladmin_surcharge}
+	\caption{Surcharge de \asladmin\ dans le cadre du projet Eyrolles}
+	\label{figure:eyrolles_sladmin_surcharge}
+\end{figure}
+
+Au final, les actions des modules d'Eyrolles doivent surcharger la classe \texttt{eyBaseAdminActions}, et les configurations doivent surcharger\\ \texttt{eyBaseAdminConfiguration}.
