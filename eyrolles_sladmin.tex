@@ -1,6 +1,6 @@
 \subsection{\asladmin}
 
-La plupart des vues du \alotdeux\ de l'Intranet d'Eyrolles sont générées grâce au plugin Symfony \asladmin. Il a été développé en interne par Sensio Labs et est issu de l'abstraction du code d'un précédent projet. Il n'a rien à voir avec la fonctionnalité de génération d'administration intégrée à Symfony. C'est encore un plugin très jeune : Eyrolles est le premier projet qui l'utilise.
+La plupart des vues du \alotdeux\ de l'\aintranet\ d'\aey\ sont générées grâce au \aplugin\ \asf\ \asladmin. Il a été développé en interne par \asl\ et est issu de l'abstraction du code d'un précédent projet. Il n'a rien à voir avec la fonctionnalité de génération d'administration intégrée à \asf. C'est encore un \aplugin\ très jeune : \aey\ est le premier projet qui l'utilise.
 
 \begin{table}
 	\centering
@@ -9,7 +9,7 @@ La plupart des vues du \alotdeux\ de l'Intranet d'Eyrolles sont générées grâ
 		& Génération d'administration & \asladmin\ \tabularnewline
 		\hline
 		\hline
-		Format de configuration & YAML & code PHP \tabularnewline
+		Format de configuration & \ayml & code \aphp \tabularnewline
 		\hline
 		Génération de code & oui & non \tabularnewline
 		\hline
@@ -18,19 +18,19 @@ La plupart des vues du \alotdeux\ de l'Intranet d'Eyrolles sont générées grâ
 		Personnalisation des vues & surcharge de \apartials\ générés & écriture classique de \atemplates \tabularnewline
 		\hline
 	\end{tabular}
-	\caption{Comparaison entre la génération d'administration de Symfony et \asladmin}
+	\caption{Comparaison entre la génération d'administration de \asf\ et \asladmin}
 	\label{table:eyrolles_sladmin_sladmin-vs-admin-gen}
 \end{table}
 
-Le tableau~\ref{table:eyrolles_sladmin_sladmin-vs-admin-gen} reprend une comparaison rapide des différences entre le moteur de génération d'administration de Symfony et \asladmin. Le plugin, tout comme la génération d'administration, permet de ne pas avoir à redévelopper la logique des opérations de base, telles que le listing d'éléments, la pagination et le tri de la liste, ou encore la création, l'édition ou la suppression d'éléments. Sa valeur ajoutée est qu'il apporte plus de flexibilité quant à la personnalisation de la logique et des différentes vues.
+Le tableau~\ref{table:eyrolles_sladmin_sladmin-vs-admin-gen} reprend une comparaison rapide des différences entre le moteur de génération d'administration de \asf et \asladmin. Le \aplugin\, tout comme la génération d'administration, permet de ne pas avoir à redévelopper la logique des opérations de base, telles que le listing d'éléments, la pagination et le tri de la liste, ou encore la création, l'édition ou la suppression d'éléments. Sa valeur ajoutée est qu'il apporte plus de flexibilité quant à la personnalisation de la logique et des différentes vues.
 
 Un exemple d'implémentation de module utilisant \asladmin\ sera présenté dans la partie~\ref{section:eyrolles_ref-langues}
 
 \asladmin\ s'articule autour de trois composants majeurs :
 \begin{itemize}
-	\item une classe PHP de configuration ;
+	\item une classe \aphp\ de configuration ;
 	\item des actions d'administration de base ;
-	\item des widgets pour agencer la vue.
+	\item des \awidgets\ pour agencer la vue.
 \end{itemize}
 
 
@@ -41,7 +41,7 @@ La classe de configuration permet de stocker les différents paramètres qui ser
 Une classe de configuration doit satisfaire les conditions suivantes :
 \begin{itemize}
 	\item elle doit être placée dans le dossier \texttt{lib/config} du module et doit être nommée \texttt{slAdminConfigurationMonNomDeModule} ;
-	\item elle doit hériter de la classe abstraite \texttt{slBaseAdminConfiguration} du plugin, qui contient la liste de toutes les options disponibles (cf. Figure~\ref{figure:eyrolles_sladmin_config}) ;
+	\item elle doit hériter de la classe abstraite \texttt{slBaseAdminConfiguration} du \aplugin\, qui contient la liste de toutes les options disponibles (cf. Figure~\ref{figure:eyrolles_sladmin_config}) ;
 	\item la définition des paramètres personnalisés doit se faire dans la méthode \texttt{configure()} surchargée.
 \end{itemize}
 
@@ -57,7 +57,7 @@ Une classe de configuration doit satisfaire les conditions suivantes :
 
 \asladmin\ contient deux classes d'actions qui servent de base aux actions des modules gérés.
 
-La première, \texttt{slBaseActions}, hérite de la classe Symfony \texttt{sfActions}. Elle fournit des méthodes pour gérer les messages de confirmation ou les messages d'erreur, ainsi qu'une méthode de validation de formulaire avancée. La seconde classe, \texttt{slAdminActions}, hérite de \texttt{slBaseActions}. C'est elle qui contient toutes les actions d'administration supportées telles que \texttt{show}, \texttt{list}, \texttt{edit}, \texttt{delete}, \texttt{filter}, \texttt{sort} ou \texttt{batch}.
+La première, \texttt{slBaseActions}, hérite de la classe \asf\ \texttt{sfActions}. Elle fournit des méthodes pour gérer les messages de confirmation ou les messages d'erreur, ainsi qu'une méthode de validation de formulaire avancée. La seconde classe, \texttt{slAdminActions}, hérite de \texttt{slBaseActions}. C'est elle qui contient toutes les actions d'administration supportées telles que \texttt{show}, \texttt{list}, \texttt{edit}, \texttt{delete}, \texttt{filter}, \texttt{sort} ou \texttt{batch}.
 
 Ainsi, la classe d'actions d'un module utilisant \asladmin\ doit hériter de la classe \texttt{slAdminActions} au lieu de la classique \texttt{sfActions}. Les méthodes d'action peuvent alors être surchargées si nécessaire.
 
@@ -83,22 +83,20 @@ Ce comportement est décrit dans la Figure~\ref{figure:eyrolles_sladmin_actions}
 	\item[\texttt{editSuccess.php}] -- le \atemplate\ affichant le formulaire d'édition d'objet.
 \end{description}
 
-Les éléments récurrents de ces vues comme le tableau d'affichage des objets ou le pager sont en réalité des \textit{widgets}, qui sont instanciés dans les actions de base de \asladmin. Le nom des classes de ces \textit{widgets} peuvent d'ailleurs être définis dans la classe de configuration du module. Les \textit{widgets} peuvent être affichés dans un \atemplate\ comme le montre le Listing~\ref{listing:eyrolles_sladmin_template}.
+Les éléments récurrents de ces vues comme le tableau d'affichage des objets ou le pager sont en réalité des \awidgets, qui sont instanciés dans les actions de base de \asladmin. Le nom des classes de ces \awidgets\ peuvent d'ailleurs être définis dans la classe de configuration du module. Les \awidgets\ peuvent être affichés dans un \atemplate\ comme le montre le Listing~\ref{listing:eyrolles_sladmin_template}.
 
-\lstinputlisting[float, caption={Affichage de \textit{widgets} de \asladmin\ dans un \atemplate}, label={listing:eyrolles_sladmin_template}]{code/eyrolles_sladmin_template.php}
+\lstinputlisting[float, caption={Affichage de \awidgets de \asladmin\ dans un \atemplate}, label={listing:eyrolles_sladmin_template}]{code/eyrolles_sladmin_template.php}
 
 
 \subsubsection{Surcharge de \asladmin\ pour les besoins de l'application}
 
-Comme la plupart des modules de l'application d'Eyrolles utilisent \asladmin, des classes propres au projet ont été insérées entre les classes \texttt{slAdmin} à surcharger habituellement et les classes des différents modules. En fait, ajouter un couche intermédiaire a l'avantage de permettre de personnaliser le comportement de la librairie utilisée tout en la gardant intacte. Il reste alors tout à fait possible de mettre à jour la libraire sans avoir à ré-appliquer les modifications propres au projet.
-
-Cette organisation est illustrée dans la Figure~\ref{figure:eyrolles_sladmin_surcharge}.
+Comme la plupart des modules de l'application d'\aey\ utilisent \asladmin, des classes propres au projet ont été insérées entre les classes \texttt{slAdmin} à surcharger habituellement et les classes des différents modules. En fait, ajouter un couche intermédiaire a l'avantage de permettre de personnaliser le comportement de la librairie utilisée tout en la gardant intacte. Il reste alors tout à fait possible de mettre à jour la libraire sans avoir à ré-appliquer les modifications propres au projet. Cette organisation est illustrée dans la Figure~\ref{figure:eyrolles_sladmin_surcharge}.
 
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.4]{eyrolles_sladmin_surcharge}
-	\caption{Surcharge de \asladmin\ dans le cadre du projet Eyrolles}
+	\caption{Surcharge de \asladmin\ dans le cadre du projet \aey}
 	\label{figure:eyrolles_sladmin_surcharge}
 \end{figure}
 
-Au final, les actions des modules d'Eyrolles doivent surcharger la classe \texttt{eyBaseAdminActions}, et les configurations doivent surcharger \texttt{eyBaseAdminConfiguration}.
+Au final, les actions des modules d'\aey\ doivent surcharger la classe \texttt{eyBaseAdminActions}, et les configurations doivent surcharger \texttt{ey\-Base\-Admin\-Configuration}.
