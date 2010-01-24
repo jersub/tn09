@@ -1,98 +1,57 @@
 <?php
 
-class slAdminConfigurationEyReferentialBase extends eyBaseAdminConfiguration
+class slAdminConfigurationEyReferentialLanguage extends eyBaseAdminConfiguration
 {
-  protected
-    $modelName = '',
-    $namespace = '',
-    $routePrefix = '';
-
-  /**
-   * Configures the object.
-   *
-   * @param array $options An array of options
-   */
   public function configure()
   {
+  	# Heritage de la configuration globale a Eyrolles
     parent::configure();
- $this->setOption('query_method', 'getLanguagesQuery');
-    $this->addRequiredOption('route_move');
-
-    # Global settings
-    $this->setOption('model', $this->modelName);
-    $this->setOption('name_space', $this->namespace);
+    
+    # Options globales
+    $this->setOption('model', 'EyReferentialLanguage');
+    $this->setOption('name_space', 'ey_referential_language');
+    
+    # Requete permettant de recuperer les langues a lister
+    $this->setOption('query_method', 'getLanguagesQuery');
 
     # Routes
-    $this->setOption('route_index', $this->routePrefix);
-    $this->setOption('route_sort', $this->routePrefix.'_sort');
-    $this->setOption('route_edit', $this->routePrefix.'/edit');
-    $this->setOption('route_delete', $this->routePrefix.'_delete');
-    $this->setOption('route_batch', $this->routePrefix.'_batch');
-    $this->setOption('route_new', $this->routePrefix.'_new');
-    $this->setOption('route_create', $this->routePrefix.'_create');
-    $this->setOption('route_update', $this->routePrefix.'_update');
-    $this->setOption('route_move', $this->routePrefix.'_move');
+    $this->setOption('route_index', 'eyReferentialLanguage');
+    $this->setOption('route_sort', 'eyReferentialLanguage_sort');
+    $this->setOption('route_edit', 'eyReferentialLanguage/edit');
+    $this->setOption('route_delete', 'eyReferentialLanguage_delete');
+    $this->setOption('route_batch', 'eyReferentialLanguage_batch');
+    $this->setOption('route_new', 'eyReferentialLanguage_new');
+    $this->setOption('route_create', 'eyReferentialLanguage_create');
+    $this->setOption('route_update', 'eyReferentialLanguage_update');
 
-    # View settings
-    $this->addRequiredOption('page_title');
-    $this->addRequiredOption('page_section');
-    $this->addRequiredOption('page_legend');
-    $this->addRequiredOption('page_description');
-
-    # Sorting
+    # Options de tri
     $this->setOption('sort_default', array('field' => 'position', 'type' => 'asc'));
 
-    # Pager
+    # Options du pager
     $this->setOption('list_max_per_page', 30);
 
-    # Widgets settings
+    # Widget de pagination du listing des langues
     $this->setOption('pager_infos_widget_options', array(
-      'label_single_object' => 'référentiel',
-      'label_multi_object'  => 'référentiels'
+      'label_single_object' => 'referentiel',
+      'label_multi_object'  => 'referentiels'
     ));
-
+    
+    # Widget du tableau de listing des langues
     $this->mergeOption('table_widget_options', array(
       'data_header'          => array(
-        'label'           => 'Intitulé',
-        'created_by'      => 'Créateur',
-        'is_default_flag' => 'Choix par défaut',
+        'label'           => 'Intitule',
+        'created_by'      => 'Createur',
         'actions'         => 'Actions'
       ),
       'row_template_name'    => 'eyReferentialBase/listTableRow',
       'row_template_extra_vars' => array('routePrefix' => $this->routePrefix)
     ));
-
     $this->mergeOption('table_widget_attributes', array(
       'id' => 'ey_referential_table'
     ));
 
-    # Forms classes
-    $this->setOption('new_form_class', $this->modelName.'Form');
-    $this->setOption('edit_form_class', $this->modelName.'Form');
-  }
-
-  public function getPageTitle()
-  {
-    return $this->getOption('page_title');
-  }
-
-  public function getPagePrefixRoute()
-  {
-    return $this->routePrefix;
-  }
-
-  public function getPageLegend()
-  {
-    return $this->getOption('page_legend');
-  }
-
-  public function getPageSection()
-  {
-    return $this->getOption('page_section');
-  }
-
-  public function getPageDescription()
-  {
-    return $this->getOption('page_description');
+    # Classes de formulaire
+    $this->setOption('new_form_class', 'eyReferentialLanguageForm');
+    $this->setOption('edit_form_class', 'eyReferentialLanguageForm');
   }
 }

@@ -1,0 +1,19 @@
+eyReferentialLanguage_batch:
+  url:                    /referentiels/langues/batch
+  param:
+    module:               EyReferentialLanguage
+    action:               batch
+  requirements:
+    sf_method:            [post]
+
+eyReferentialLanguage:
+  class:                  sfDoctrineRouteCollection
+  options:
+    model:                EyReferentialLanguage
+    prefix_path:          /referentiels/langues
+    column:               id
+    with_wildcard_routes: true
+    with_show:            false
+    segment_names:
+      edit:               editer
+      new:                creer

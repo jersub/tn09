@@ -29,13 +29,18 @@
 	breaklines		= true, 
 	basicstyle		= \scriptsize\ttfamily,
 	keywordstyle	= \bfseries,
+	numbers         = left,
+	stepnumber      = 5,
 	numberstyle		= \tiny,
 	firstnumber		= 1,
 	captionpos		= b
 }
 
+\lstdefinelanguage{YML}{}
+
+
 \pagestyle{fancy}
-\lhead{\begin{small}\leftmark\end{small}}
+\lhead{\begin{small}\nouppercase{\leftmark}\end{small}}
 \rhead{\begin{small}\nouppercase{\rightmark}\end{small}}
 
 \graphicspath{{figs/}}
@@ -59,11 +64,10 @@
 \input{conclusion}
 \newpage
 
-%\bibliographystyle{plain}
-%\addcontentsline{toc}{chapter}{Bibliographie}
-%\nocite{*}
-%\bibliography{biblio}
-%\newpage
+\bibliographystyle{plain}
+\addcontentsline{toc}{chapter}{Bibliographie}
+\bibliography{biblio}
+\newpage
 
 \input{annexes}
 

@@ -1,72 +1,32 @@
 <?php
 
 /**
- * Actions du module eyLanguageActions.
+ * Actions du module eyReferentialLanguage.
  */
-class eyLanguageActions extends eyBaseAdminActions
+class eyReferentialLanguageActions extends eyBaseAdminActions
 {
   /**
-   * Executes list action.
-   *
-   * @param sfWebRequest $request A request object
-   */
-  public function executeList(sfWebRequest $request)
-  {
-    parent::executeList($request);
-
-    $extraVars = $this->widgetTable->getOption('row_template_extra_vars');
-    $extraVars = array_merge($extraVars, array('count' => $this->widgetPager->getOption('pager')->getNbResults()));
-    $this->widgetTable->setOption('row_template_extra_vars', $extraVars);
-
-    $this->setTemplate('list');
-  }
-
-  /**
-   * Exécute l'action permettant l'édition d'un objet.
-   *
-   * Edit an object
-   *
-   * @param sfWebRequest $request
+   * Execute l'action permettant l'edition d'une langue.
    */
   public function executeEdit(sfWebRequest $request)
   {
     parent::executeEdit($request);
 
-    $request->addBreadcrumb($this->object->getLabel());
-    
-    // on utilise le même template que l'action new
-    $this->setTemplate('new');
-  }
+    // on recupere la langue a partir de l'identifiant passe dans la route
+    $language = $this->getRoute()->getObject();
 
-  /**
-   * Executes flagDefault action.
-   *
-   * @param sfRequest $request A request object
-   */
-  public function executeFlagDefault(sfWebRequest $request)
-  {
-    $referential = $this->getRoute()->getObject();
-
-    if (!$this->checkEditableAcl($referential))
-    {
-      $this->setErrorMessage('Le référentiel ne peut être modifié en raison d\'un manque de permission.');
-      $this->redirect($this->getAdminConfiguration()->getOption('route_index'));
-    }
-
-    $referential->flagDefault();
-
-    $this->redirect($this->getModuleName());
+    // on ajoute le nom de la langue dans le fil d'Arianne
+    $request->addBreadcrumb($language->getLabel());
   }
   
   /**
    * Initialisation du fil d'Arianne.
-   *
    */
   protected function initBreadcrumb()
   {
     parent::initBreadcrumb();
 
-    $this->getRequest()->addBreadcrumb('Référentiels');
+    $this->getRequest()->addBreadcrumb('Referentiels');
     $this->getRequest()->addBreadcrumb(
       'Langues',
       $this->generateUrl($this->getAdminConfiguration()->getOption('route_index'))
