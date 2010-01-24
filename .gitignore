@@ -7,3 +7,5 @@ rapport.pdf
 *.toc
 *.dvi
 *.lol
+*.bbl
+*.blg
