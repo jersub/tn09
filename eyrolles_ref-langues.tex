@@ -5,9 +5,9 @@ Le référentiel des langues est l'un des nombreux référentiels administrables
 
 Il est implémenté sous la forme d'un module nommé \texttt{ey\-Referential\-Language} qui utilise \asladmin. En effet, le module doit offrir les fonctionnalités suivantes, qui sont offertes par défaut par le \aplugin\ :
 \begin{itemize}
-\item le listings des langues contenues dans la base de données ;
-\item l'ajout et la modification d'une langue ;
-\item la suppression d'une langue.
+	\item le listings des langues contenues dans la base de données ;
+	\item l'ajout et la modification d'une langue ;
+	\item la suppression d'une langue.
 \end{itemize}
 
 Le module des langues a été choisi pour être décrit car il peut être considéré comme un module qui, tout en restant très simple, est typique de l'application. Les paragraphes suivants rentrent dans le détail de son implémentation, et l'annexe~\ref{section:annexe_eyrolles_ref-langues} regroupe son code et des captures d'écran.
@@ -61,13 +61,13 @@ La classe de configuration nécessaire pour \asladmin\ est accessible dans le li
 Sans expliciter de façon fastidieuse toutes les options utilisées, elle définit globalement les paramètres suivants :
 
 \begin{itemize}
-\item la classe de modèle à utiliser ;
-\item la requête à utiliser pour récupérer les langues à afficher sur la page de listing (listing~\ref{listing:eyrolles_ref-langues_table}) ;
-\item le champ sur lequel les langues seront triés ;
-\item le nombre maximum de langues affichées sur la page de listing ;
-\item le titre des colonnes du tableau de la page de listing ;
-\item le \apartial\ à utiliser pour afficher une ligne du tableau de listing ;
-\item les classes de formulaire à utiliser.
+	\item la classe de modèle à utiliser ;
+	\item la requête à utiliser pour récupérer les langues à afficher sur la page de listing (listing~\ref{listing:eyrolles_ref-langues_table}) ;
+	\item le champ sur lequel les langues seront triés ;
+	\item le nombre maximum de langues affichées sur la page de listing ;
+	\item le titre des colonnes du tableau de la page de listing ;
+	\item le \apartial\ à utiliser pour afficher une ligne du tableau de listing ;
+	\item les classes de formulaire à utiliser.
 \end{itemize}
 
 
@@ -93,9 +93,26 @@ Le module du référentiel des langues restant un module très simple, les actio
 
 \subsubsection{Affichage de la vue}
 
-Les vues, contrairement aux actions, n'ont pas déjà été écrites dans \asladmin.
+Les vues, contrairement aux actions, n'ont pas déjà été écrites dans \asladmin\ : c'est au développeur de les implémenter en totalité.
 
+Les \atemplates\ et les \apartials\ utilisés dans le module sont les suivants :
 
-\subsubsection{Formulaire de création-édition}
+\begin{description}
+	\item[\texttt{listSuccess.php}] \atemplate\ du listing des langues (listing~\ref{listing:eyrolles_ref-langues_template-list})
+	\item[\texttt{\_listTableRow.php}] \apartial\ des lignes du tableau de listing (listing~\ref{listing:eyrolles_ref-langues_template-row})
+	\item[\texttt{newSuccess.php}] \atemplate\ de création d'une langue (listing~\ref{listing:eyrolles_ref-langues_template-new})
+	\item[\texttt{\_form.php}] \apartial\ du formulaire de création (listing~\ref{listing:eyrolles_ref-langues_template-form})
+\end{description}
 
-TODO
+Étant donné la quantité de concepts à acquérir pour comprendre les subtilités de la vue, le fonctionnement de ces fichiers de \atemplate\ ne sera pas décrit ici en détail. Pour en savoir plus, il est toutefois possible de se référer à la documentation du \afm\ \asf\cite{thebook}.
+
+Voilà tout de même quelques clés :
+
+\begin{itemize}
+	\item les fonctions \texttt{url\_for()} et \texttt{link\_to()} permettent de générer des liens hypertexte à partir des routes passées en paramètre ;
+	\item la fonction \texttt{image\_tag()} permet de générer la balise d'une image donnée pour l'afficher dans le navigateur ;
+	\item dans \texttt{\_listTableRow.php}, la variable \texttt{\$subject} représente l'instance de l'objet de langue à afficher sur la ligne du tableau ;
+	\item la fonction \texttt{include\_partial()} permet d'inclure un \apartial\ dans un \atemplate\ : c'est de cette manière que \texttt{\_form.php} est inclus dans \texttt{new\-Success.php} ;
+	\item l'inclusion de \texttt{\_listTableRow.php} dans \texttt{listSuccess.php} se fait dans le \awidget\ du tableau \texttt{\$widgetTable}, qui provient de \asladmin ;
+	\item le rendu HTML du formulaire est ici généré automatiquement par \asf\ (en se basant sur le schéma de la base de données) en utilisant l'instruction \texttt{echo \$form}.
+\end{itemize}
