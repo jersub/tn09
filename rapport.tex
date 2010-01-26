@@ -10,7 +10,9 @@
 \usepackage{fancyhdr}
 \usepackage{array}
 
+
 \input{alias}
+
 
 \title{Stage d'assistant ingénieur chez \asl}
 \author{Jérémy Subtil}
@@ -21,6 +23,7 @@
 	pdfsubject   = {Stage d'assistant ingénieur chez \asl},
 	pdfkeywords  = {site web, \aphp, \afm, \asf, programmation orientée objet, \amvc, base de données, \aorm, \adoctrine}
 }
+
 
 \renewcommand{\lstlistlistingname}{Table des listings de code}
 \lstset{
@@ -40,11 +43,12 @@
 \lstdefinelanguage{YML}{}
 
 
-\pagestyle{fancy}
 \lhead{\begin{small}\nouppercase{\leftmark}\end{small}}
 \rhead{\begin{small}\nouppercase{\rightmark}\end{small}}
 
+
 \graphicspath{{figs/}}
+
 
 \begin{document}
 
@@ -59,6 +63,8 @@
 
 \input{resume}
 \newpage
+
+\pagestyle{fancy}
 
 \input{presentation}
 \input{stage}
