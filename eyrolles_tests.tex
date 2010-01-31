@@ -1,0 +1,29 @@
+\subsection{Écriture de tests}
+
+Le projet \aey\ n'échappe pas à la règle : comme ses pairs, il est lui aussi soumis, via \asismo, au processus d'intégration continue décrit dans la partie~\ref{section:sismo}.
+
+Le \afm\ \asf\ supporte deux types de tests : les tests unitaires et les tests fonctionnels.
+
+
+\subsubsection{Tests unitaires}
+
+\begin{quote}
+Le test unitaire est un procédé permettant de s'assurer du fonctionnement correct d'une partie déterminée d'un logiciel ou d'une portion d'un programme.\cite{unit}
+\end{quote}
+
+Avec \asf, la bonne pratique consiste à tester les méthodes des classes de modèle et des classes utilitaires, indépendamment du reste de l'application. En effet, si à un moment ou un autre un des développeurs modifie le comportement de l'une des méthodes clés testées, les tests unitaires concernés deviendront potentiellement invalides.
+
+Deux cas sont alors possibles : soit le nouveau comportement est désiré, soit au contraire c'est une erreur. Dans le premier cas, les tests unitaires ainsi que les parties de l'application qui utilisent leurs spécifications doivent être modifiés en conséquence. Dans le second, le comportement doit revenir dans son état précédent alors que les tests restent intacts. Dans chaque situation, le but est de ramener la suite de tests vers son état valide. Ainsi, l'écriture de tests unitaires est une bonne façon de s'assurer que toute modification de code testé sera suivie d'une vérification.
+
+Une façon de tester unitairement une méthode consiste à l'appeler plusieurs fois, avec des paramètres ou un contexte différent. On vérifie alors si les valeurs retournées sont bien celles attendues, si une exception est propagée, si le contexte est de le bon état, etc.
+
+Dans \asf, les tests unitaires sont effectués à l'aide du \afm\ de test unitaire \alime, développé pour \asf. Sur le projet \aey, ils ont été écrits tout au long du cycle de développement. Par souci de pragmatisme, seules les méthodes relativement importantes sont testées : il s'agit de ne pas perdre de temps avec les méthodes évidentes, ce qui reviendrait à tester les fonctionnalités de \asf\ elles-mêmes déjà unitairement testées de leur côté.
+
+Par ailleurs, certaines fonctionnalités du projet à la logique poussée ont été développée en utilisant la méthode Test driven development (TDD), soit le développement 
+
+Au delà de prévenir les régressions sur le projet, l'écriture de tests unitaires a permis de mettre à l'épreuve rapidement chaque mé
+
+
+\subsubsection{Tests fonctionnels}
+
+TODO
