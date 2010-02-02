@@ -17,11 +17,9 @@ Deux cas sont alors possibles : soit le nouveau comportement est désiré, soit 
 
 Une façon de tester unitairement une méthode consiste à l'appeler plusieurs fois, avec des paramètres ou un contexte différent. On vérifie alors si les valeurs retournées sont bien celles attendues, si une exception est propagée, si le contexte est de le bon état, etc.
 
-Dans \asf, les tests unitaires sont effectués à l'aide du \afm\ de test unitaire \alime, développé pour \asf. Sur le projet \aey, ils ont été écrits tout au long du cycle de développement. Par souci de pragmatisme, seules les méthodes relativement importantes sont testées : il s'agit de ne pas perdre de temps avec les méthodes évidentes, ce qui reviendrait à tester les fonctionnalités de \asf\ elles-mêmes déjà unitairement testées de leur côté.
+Dans \asf, les tests unitaires sont effectués à l'aide du \afm\ de test unitaire \alime. Sur le projet \aey, ils ont été écrits tout au long du cycle de développement. Par souci de pragmatisme, seules les méthodes relativement importantes sont testées : il s'agit de ne pas perdre de temps avec les méthodes évidentes, ce qui reviendrait à tester les fonctionnalités de \asf\ elles-mêmes déjà unitairement testées de leur côté.
 
-Par ailleurs, certaines fonctionnalités du projet à la logique poussée ont été développée en utilisant la méthode Test driven development (TDD), soit le développement 
-
-Au delà de prévenir les régressions sur le projet, l'écriture de tests unitaires a permis de mettre à l'épreuve rapidement chaque mé
+Au delà de prévenir les régressions sur le projet, l'écriture de tests unitaires a permis de mettre à l'épreuve rapidement des classes à la logique poussée, et ce dès leur création. Cette démarche se rapproche de la méthode connue sous le nom de \emph{développement piloté par les tests}, qui préconise d'écrire les tests unitaires avant même d'écrire le code correspondant. Rapprocher les deux phases d'écriture a l'avantage de garantir un résultat cohérent avec les spécifications initiales. En effet, . Aussi, un script de test s'édite et s'exécute facilement, ce qui favorise la découverte de cas limites.
 
 
 \subsubsection{Tests fonctionnels}
