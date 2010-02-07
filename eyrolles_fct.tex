@@ -1,4 +1,69 @@
 \subsection{Fonctionnalités attendues de l'\aintranet}
 \label{section:eyrolles_fct}
 
-TODO
+Cette section offre un aperçu des fonctionnalités commandées par le client, qui ont été rassemblées dans le cahier des charges du projet au moment de la phase de spécification.
+
+Comme il l'a été annoncé dans la section~\ref{section:eyrolles_contexte}, le but principal du \alotdeux\ de l'\aintranet\ d'\aey\ est de fournir une base des projets éditoriaux de la maison d'édition. Le projet est donc l'objet central de l'application. Il peut représenter différents types d'œuvre : un livre, un \advd, un \aebook\footnote{Un \aebook, ou livre électronique, est un texte numérisé pouvant être lu sur un support électronique.\cite{ebook}}, ou encore un couple livre + \aebook. Chaque projet s'identifie par son code \ageodif, qui est en fait le code commercial interne à \aey. À partir de cet identifiant peuvent être générés des codes plus classiques et plus répandus, comme l'\aisbn\ ou l'\aean.
+
+L'ensemble des fonctionnalités de l'\aintranet\ est soumise à un contrôle d'accès utilisateur. En effet, un utilisateur de l'application web devra se connecter à l'aide d'un identifiant et d'un mot de passe, tous deux enregistrés dans la base de données. Il lui est attribué un rôle utilisateur, comme \og invité \fg, \og éditeur \fg\ ou encore \og administrateur \fg\ par exemple, qui définit un ensemble de permissions. Ainsi, l'utilisateur identifié se verra autoriser ou refuser des accès en fonction du rôle qui lui a été affecté initialement. Par soucis d'ergonomie, toutes les fonctionnalités dont l'utilisateur n'a pas accès lui sont cachées.
+
+Les fonctionnalités attendues sont listées ci-après, celles que j'ai moi-même développées étant marquées d'une astérisque :
+
+\begin{itemize}
+	\item gestion de la session utilisateur :
+    	\begin{itemize}
+			\item profil utilisateur ;
+			\item synchronisation \aldap\footnote{\aldap\ (\textit{Lightweight Directory Access Protocol}) est un protocole reposant sur \atcpip\ permettant l'interrogation et la modification de services d'annuaire.\cite{ldap}} des comptes utilisateurs ;
+			\item rôles utilisateur et permissions ;
+			\item contrôles d'accès ;
+		\end{itemize}
+    \item modules du référentiel\footnote{Un référentiel est un ensemble de bases de données contenant les \og références \fg\ d'un système d'information.\cite{referentiel}} projet :
+    	\begin{itemize}
+			\item onglet \og tableau de bord \fg ;
+			\item onglet \og informations générales \fg ;
+			\item onglet \og intervenants externes \fg ;
+			\item onglet \og devis \fg ;
+			\item onglet \og fiche projet \fg ;
+			\item onglet \og validations \fg ;
+			\item onglet \og \abat\ \aef\ \fg\aast (formulaire de processus métier) ;
+			\item onglet \og dépôt de documents \fg ;
+			\item onglet \og résumés \fg ;
+			\item onglet \og fabrication \fg ;
+			\item création de projets de types \og nouveauté \fg, \og nouvelle édition \fg, \og \textit{relookage} \fg, \og réimpression \fg, \og tirage spécial \fg\aast ;
+			\item historique d'une œuvre ;
+			\item déclenchement d'étapes de processus métier : validation, \aomf\footnote{Ordre de Mise en Fabrication}, \aomr\footnote{Ordre de Mise en Réimpression}, \aoet\footnote{Ordre d'Envoi en Tirage}, référencement\aast, clôture ;
+			\item listing des projets\aast, des demandes de validation projet\aast, des demandes de déclenchement \aoet\aast, du planning \aef\aast ;
+		\end{itemize}
+	\item module de gestion des intervenants externes\aast (auteurs, contacts, prestataires) ;
+	\item module de gestion des collections d'œuvres ;
+	\item modules de gestion des maisons d'éditions\aast\ (internes à \aey\ ou externes) ;
+	\item module de gestion des codes \ageodif\aast ;
+	\item module de gestion des contrats ;
+	\item module de gestion des demandes de paiement ;
+	\item module de gestion des relevés de travaux ;
+	\item module du panier de projets d'un utilisateur\aast, avec export de documents\aast\ au format \azip\footnote{Le \azip\ est un format de fichier permettant l'archivage et la compression de données sans perte de qualité.\cite{zip}} et export de données\aast\ au format \acsv\footnote{\acsv\ (\textit{Comma-Separated Values}) est un format informatique ouvert  représentant des données tabulaires sous forme de \og valeurs séparées par des virgules \fg.\cite{csv}} ;
+	\item modules de référentiels administrables divers\aast :
+		\begin{itemize}
+			\item marques utilisées sur une œuvre ;
+			\item natures de contribution des intervenants externes ;
+			\item natures des prestations ;
+			\item spécialités de prestataires ;
+			\item langues ;
+			\item types d'intérieurs de livres ;
+			\item types de couvertures ;
+			\item types d'embellissements (mat, brillant\dots) ;
+			\item types de produits complémentaires (\acd, \advd\dots) ;
+			\item types de contrats ;
+			\item motifs de clôture de projets ;
+			\item formats \aebook ;
+		\end{itemize}
+	\item \aws\ de communication avec le \alotun\aast\ (voir la section~\ref{section:eyrolles_webservices}) ;
+	\item tâches exécutables via la ligne de commande\aast :
+		\begin{itemize}
+			\item initialisation des auteurs, des collections et des thématiques via les \awss\ associés ;
+			\item initialisation des codes \ageodif\ via un fichier \acsv ;
+			\item mise à jour des statuts des projets, des informations commerciales des projets.
+		\end{itemize}
+\end{itemize}
+
+Ce \alotdeux\ de l'\aintranet\ d'\aey\ est donc un projet conséquent qui justifie bien l'implication de plusieurs développeurs.
