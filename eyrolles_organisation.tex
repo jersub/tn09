@@ -41,21 +41,33 @@ Le \amcd\ du \alotdeux\ d'\aey, modélisé par \acohen\ et \ahamon, comprend ~ta
 
 \subsubsection{Phase de développement}
 
-Ma participation au projet \aey\ a commencé au début de la phase de développement. Avec \ahamon, nous y avons développé la quasi-totalité des fonctionnalités attendues\footnote{Cf. section~\ref{section:eyrolles_fct}}. Début décembre, \aweistroff, qui venait d'être embauché par \asl, nous a rejoint pour soutenir le rythme d'implémentation.
+Ma participation au projet \aey\ a commencé au début de la phase de développement. Avec \ahamon, nous y avons développé la la plupart des fonctionnalités attendues\footnote{Cf. section~\ref{section:eyrolles_fct}}. Début décembre, \aweistroff, qui venait d'être embauché par \asl, nous a rejoint pour soutenir le rythme d'implémentation.
 
 La répartition du travail s'est mise en place simplement en affectant, au fur et à mesure de l'avancement du projet, une fonctionnalité à implémenter à chaque développeur. Chaque fonctionnalité à traiter a été choisie par le chef de projet en fonction de sa priorité estimée. Le code source de l'application était partagé via un dépôt \asvn\footnote{Cf. section~\ref{section:outils_svn}}.
 
-Le \alotdeux\ de l'\aintranet\ d'\aey\ utilise la version 1.3 de \asf. Au moment où le développement du projet avait commencé, cette version du \afm\ n'était pas encore sortie en version finale et était encore en plein développement. Comme c'est \asl\ qui 
+Le \alotdeux\ de l'\aintranet\ d'\aey\ utilise la version 1.3 de \asf. Au moment où le développement du projet avait commencé, cette version du \afm\ n'était pas encore sortie en version finale et était encore en plein développement. Comme c'est \asl\ qui est à l'origine de \asf, la maîtrise sur le \afm\ en interne est importante : l'entreprise peut donc se permettre d'utiliser les dernières technologies disponibles.
+
+Les contraintes techniques de développement imposent d'utiliser une base de données \apsql, à la demande du client. L'utilisation de \asf\ 1.3, quant à elle, nécessite une version de \aphp\ supérieure à 5.2.4. Le serveur \ahttp\ utilisé est \aapache~2.
 
 
 \subsubsection{Phase de recette}
 
-TODO
+La phase de recette consiste à faire tester l'application au client, qui va pouvoir remonter les éventuels \abugs\ à corriger ou les fonctionnalités à améliorer. La communication entre le client, le chef de projet et les développeurs s'est déroulée via le système de gestion de projet \atrac\footnote{Cf. section~\ref{section:outils_trac}}.
+
+En fait, le client y rédige la description de son \abug\ dans un ticket. Le chef de projet le valide, et l'assigne ensuite au développeur qui doit s'en charger. Une fois que le développeur a fait son travail d'implémentation sur un ticket, il le renvoie au chef de projet qui vérifie la fonctionnalité modifiée. Si tout se passe bien, le ticket est retourné à nouveau au client pour qu'il se rende compte par lui-même de l'amélioration. Le client satisfait clôt alors le ticket ; dans le cas contraire, il initie un nouveau cycle d'échange sur le même ticket. Ce processus de recette via rapports de \abugs\ est illustré dans la figure~\ref{figure:eyrolles_organisation_tickets}.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.4]{eyrolles_organisation_tickets}
+	\caption{États d'un ticket dans le cas du processus de recette d'\aey}
+	\label{figure:eyrolles_organisation_tickets}
+\end{figure}
+
+Par ailleurs, pour permettre au client de tester correctement l'application, il est nécessaire de lui montrer régulièrement les nouvelles versions du projet. Cette démarche s'est traduite par une livraison hebdomadaire de l'application sur le serveur du client. Le processus de livraison d'\aey\ est décrit plus tard dans la section~\ref{section:eyrolles_prod}.
+
+Du point de vue de l'organisation du travail, \ahamon\ a quitté l'équipe de développement d'\aey\ au moment du passage en phase de recette afin de s'occuper du pôle formation de \asl. Pendant trois semaines, j'ai continué avec \aweistroff, qui a ensuite été affecté sur un autre projet début janvier. J'ai continué pendant quelques temps à développer seul sur le projet, et fin janvier, \abachelet\ m'a rejoint ponctuellement pour m'aider à fermer les tickets restants.
 
 
 \subsubsection{Livraison finale}
 
-TODO
-
-
-
+La livraison finale ayant été repoussée après mon départ, je n'aurais pas eu l'occasion d'y participer. Toutefois, le processus sera exactement le même que celui utilisé durant la phase de recette.
