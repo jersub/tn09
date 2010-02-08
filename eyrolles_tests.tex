@@ -3,7 +3,7 @@
 
 Le projet \aey\ n'échappe pas à la règle : comme ses pairs, il est lui aussi soumis, via \asismo, au processus d'intégration continue décrit dans la partie~\ref{section:sismo}.
 
-Le \afm\ \asf\ supporte deux types de tests : les tests unitaires et les tests fonctionnels.
+Le \afm\ \asf\ supporte deux types de tests complémentaires : les tests unitaires et les tests fonctionnels.
 
 
 \subsubsection{Tests unitaires}
@@ -25,4 +25,10 @@ Au delà de prévenir les régressions sur le projet, l'écriture de tests unita
 
 \subsubsection{Tests fonctionnels}
 
-TODO
+Les tests fonctionnels diffèrent des tests unitaires du point de vue qu'ils vérifient les fonctionnalités de l'application. Leur portée s'éloigne ainsi du code et devient globale à l'application. Au niveau d'un site web, un test fonctionnel consiste à naviguer à l'intérieur, en cliquant sur des liens, en remplissant des formulaires, ou encore en vérifiant si divers éléments d'une page sont bien présents.
+
+Grâce au \afm\ \asf, il est possible d'automatiser ces tâches. En effet, il existe une classe \texttt{sfBrowser} qui simule la visite des pages du site de la même façon qu'un navigateur web. Celle-ci est instanciable et contrôlable dans un script \aphp, rendant ainsi possible l'exécution automatique du test fonctionnel via \asismo.
+
+Ce type de test prend tout son intérêt quand il s'agit de tester un cas d'utilisation typique de l'application web par le client. En reproduisant un ensemble significatif des scénarios utilisateurs sous forme de tests fonctionnels, on peut alors s'assurer du bon fonctionnement global du site quels que soient les changement de code entrepris.
+
+Dans le cas du projet \aey, un test fonctionnel simple a été écrit pour chaque page de l'\aintranet : il vérifie si elle s'affiche correctement, sans retourner de message d'erreur. De la même manière, les formulaires de l'application sont remplis avec des valeurs valides ou non, sont soumis, et le contenu de la page renvoyée est vérifié. Enfin, durant la phase de recette, un test fonctionnel est écrit pour chaque \abug\ de type \og défaut \fg\ corrigé : ce test qualifié de test de non-régression permet de s'assurer que le client ne rencontrera pas à plusieurs reprises un même problème. 
