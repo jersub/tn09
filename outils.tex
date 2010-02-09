@@ -1,54 +1,17 @@
 \section{Outils utilisés dans l'entreprise}
 
-\subsection{Le langage \aphp}
+\input{outils_php}
 
-TODO
+\input{outils_edi}
 
-\subsection{Environnements de développement}
+\input{outils_vservers}
 
-TODO
+\input{outils_svn}
 
-\subsection{vservers}
+\input{outils_sf}
 
-TODO
+\input{outils_doctrine}
 
-\subsection{\asvn}
-\label{section:outils_svn}
+\input{outils_trac}
 
-%svnmerge
-
-TODO
-
-\subsection{\asf}
-
-% plugin
-% admin gen
-% actions
-% widgets
-% dossiers / arborescence
-% partial
-% template
-
-TODO
-
-\subsection{\adoctrine}
-
-TODO
-
-\subsection{\atrac}
-\label{section:outils_trac}
-
-TODO
-
-\subsection{\asismo}
-\label{section:sismo}
-
-\asismo\ est une application web développée en interne chez \asl. Elle a été écrite en \aphp\ en utilisant le \afm\ \asf.
-
-C'est un outil d'intégration continue. Ce concept consiste à tester automatiquement l'application tout au long de son développement. Cela permet de prévenir les régressions et de détecter facilement où et quand des erreurs ont été introduites.
-
-En effet, pour chaque projet en cours de développement, \asismo\ surveille constamment si de nouveaux changements ont été introduits sur leur dépôt \asvn\ respectif. À intervalle de temps régulier (de l'ordre de la demi-heure), \asismo\ reconstruit chaque projet ayant fait l'objet de modifications depuis la passe précédente. Les tests unitaires et fonctionnels qui ont été écrits par les développeurs sont alors lancés.
-
-Si toute la batterie de tests d'un projet a réussi, le nom du projet est affiché en vert dans l'interface de liste des projets sur \asismo, ou en rouge sinon. Cette vue est particulièrement utile pour repérer rapidement les projets qui posent potentiellement problème.
-
-Sur la fiche d'un projet sont affichés les numéros de révision de son dépôt \asvn. Ici aussi, des codes couleur sont utilisés : une révision est verte pour des tests réussis, rouge pour des tests échoués, et gris quand les tests n'ont pas encore été lancés. Ainsi, les développeurs peuvent facilement situer à quelle moment les spécifications des tests n'ont plus été respectées grâce à l'intervalle révision verte - révision rouge indiquée par \asismo.
+\input{outils_sismo}
