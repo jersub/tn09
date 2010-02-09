@@ -1,3 +1,9 @@
 \subsection{\avservers}
 
-TODO
+Chez \asl, il existe une machine relativement puissante qui est divisée en plusieurs machines virtuelles surnommées \avservers. Celles-ci ont l'avantage de pouvoir être facilement dupliquées et reviennent beaucoup moins cher que des machines physiques dédiées à la performance équivalente. 
+
+Un \avserver\ prend ainsi l'apparence d'un serveur \alinux\ classique et indépendant. Chacun appartient à un développeur ou à un chef de projet. Son propriétaire est le seul à pouvoir y accéder et en possède les droits administrateurs : il peut donc y installer tous les outils dont il aurait besoin.
+
+Typiquement, le développeur se sert de son \avserver\ pour afficher les pages web qu'il développe grâce au serveur web et au serveur de base de données qui y sont installés. C'est également par ce biais que les chefs de projets ou les autres développeurs peuvent consulter le fruit de son travail.
+
+Finalement, ce système de \avservers\ est un excellent compromis entre uniformisation des environnements de développement et flexibilité.
