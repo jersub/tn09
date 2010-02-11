@@ -6,7 +6,6 @@
 \usepackage{hyperref}
 \usepackage{setspace}
 \usepackage{color}
-\usepackage{listings}
 \usepackage{fancyhdr}
 \usepackage{array}
 
@@ -25,24 +24,6 @@
 }
 
 
-\renewcommand{\lstlistlistingname}{Table des listings de code}
-\lstset{
-	language		= PHP,	
-	tabsize			= 2,
-	frame			= single,
-	breaklines		= true, 
-	basicstyle		= \scriptsize\ttfamily,
-	keywordstyle	= \bfseries,
-	numbers         = left,
-	stepnumber      = 5,
-	numberstyle		= \tiny,
-	firstnumber		= 1,
-	captionpos		= b
-}
-
-\lstdefinelanguage{YML}{}
-
-
 \lhead{\begin{small}\nouppercase{\leftmark}\end{small}}
 \rhead{\begin{small}\nouppercase{\rightmark}\end{small}}
 
@@ -58,7 +39,6 @@
 \tableofcontents
 \listoffigures
 \listoftables
-\lstlistoflistings
 \newpage
 
 \input{resume}
