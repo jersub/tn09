@@ -20,7 +20,31 @@ Le développement massif et toujours croissant d'\ainternet\ oblige les différe
 
 \subsubsection{Le modèle \amvc}
 
-TODO
+L'utilisation du \asf\ incite fortement le développeur à respecter les bonnes pratiques du développement web. En effet, toute l'organisation du \afm\ se base sur le patron de conception\footnote{En informatique, un patron de conception est un concept de génie logiciel destiné à résoudre les problèmes récurrents suivant le paradigme objet.\cite{designpattern}} Modèle-Vue-Contrôleur, plus connu sous l'acronyme \amvc. Le but de celui-ci est de séparer complètement les données et les
+règles qui les gèrent de leur présentation. Il est alors possible de présenter les mêmes objets, comme par exemple une liste d'actualités, à la fois sous la forme d'une page classique (en \ahtml) et de flux de syndication (aux formats \arss\ et \aatom), le tout sans changer le code concernant la logique de récupération et d'organisation des données.
+
+Pour que cette séparation soit possible, les objets stockés via la couche du modèle ne peuvent pas être conscients de la façon dont ils seront présentés. C'est la couche de la vue qui se chargera de les afficher. En outre, la vue ne présente que des données préparées à l'avance : c'est le contrôleur qui est chargé de récupérer les valeurs adéquates depuis la couche du modèle pour ensuite les transmettre à la vue. L'approche est illustrée dans la figure~\ref{figure:outils_sf_mvc}.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.4]{outils_sf_mvc}
+	\caption{Interactions entre les trois niveaux du patron de conception \amvc}
+	\label{figure:outils_sf_mvc}
+\end{figure}
+
+Plus précisément, les trois paragraphes suivants décrivent comment les trois niveaux du \amvc\ s'organisent dans \asf.
+
+\paragraph{Le modèle}
+
+Il représente le comportement de l'application : traitements des données, interactions avec la base de données, etc. Il décrit les données manipulées par l'application et définit les méthodes d'accès. Son implémentation est fortement liée à l'\aorm\ utilisé.\footnote{Cf. section~\ref{section:outils_doctrine} concertant l'\aorm\ \adoctrine}
+
+\paragraph{La vue}
+
+Elle correspond à l'interface avec laquelle l'utilisateur interagit. Plusieurs vues peuvent afficher les informations d'un même modèle, et une même vue peut présenter plusieurs modèles. Via des fichiers appelés \atemplates, elle peut être conçue en \ahtml\ ou tout autre \og langage \fg\ de pré\-sen\-ta\-ti\-on. Elle n'effectue aucun traitement, se contentant d'afficher les résultats de ceux effectués par le modèle.
+
+\paragraph{Le contrôleur}
+
+Il prend en charge la gestion des événements de synchronisation pour mettre à jour la vue ou le modèle. Il n'effectue aucun traitement, ne modifie aucune donnée. Il analyse la requête du client, se contente d'appeler le modèle adéquat et de renvoyer la vue correspondant à la demande. Dans \asf, chaque requête voit sa logique localisée dans ce que l'on appelle une \og action \fg. Elle est accessible via une \og route \fg, qui correspond à l'adresse saisie par l'utilisateur dans son navigateur web.
 
 
 \subsubsection{Fonctionnalités de \asf}
