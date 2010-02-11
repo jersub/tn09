@@ -15,7 +15,7 @@ Toutefois, on peut reprocher aux \afms\ de nécessiter un apprentissage supplém
 
 Par ailleurs, l'utilisation de \afms\ dans le contexte du développement web est une approche relativement récente. En effet, pendant longtemps, les sites web ont été plutôt considérés comme des réalisations éphémères ne nécessitant ni une modélisation poussée ni une démarche de qualité et de maintenance. Parallèlement, la façon de développer une application web est en apparence assez exotique : il faut manipuler des entités spécifiques comme la session utilisateur, la requête et la réponse, la persistance des données (souvent effectuée via des requêtes à une base de données) est originale, et l'approche objet est moins évidente. Aussi, le retard dans l'utilisation de \afms\ web est amplifié par le fait que le développement web a pu capter une part importante de programmeurs amateurs qui, n'ayant pas suivi de véritable formation en informatique, ne sont pas au fait des méthodes du génie logiciel.
 
-Le développement massif et toujours croissant d'\ainternet\ oblige les différents acteurs du marché de se positionner sur ce secteur. Ce phénomène est d'autant plus accentué par l'émergence récente et populaire du web~2.0\cite{webdeux} dit \emph{social} ou encore du \acloud\cite{cloud}. Plus que de simples pages, les applications web deviennent alors des systèmes d'information à part entière. Ainsi, aujourd'hui, on ressent vraiment le besoin de faire appel aux différentes méthodes du génie logiciel dans le domaine du développement web, et l'utilisation de \afm\ fait partie intégrante de l'ensemble des solutions.
+Le développement massif et toujours croissant d'\ainternet\ oblige les dif\-fé\-rents acteurs du marché de se positionner sur ce secteur. Ce phénomène est d'autant plus accentué par l'émergence récente et populaire du web~2.0\cite{webdeux} dit \emph{social} ou encore du \acloud\cite{cloud}. Plus que de simples pages, les applications web deviennent alors des systèmes d'information à part entière. Ainsi, aujourd'hui, on ressent vraiment le besoin de faire appel aux différentes méthodes du génie logiciel dans le domaine du développement web, et l'utilisation de \afm\ fait partie intégrante de l'ensemble des solutions.
 
 
 \subsubsection{Le modèle \amvc}
@@ -36,7 +36,7 @@ Plus précisément, les trois paragraphes suivants décrivent comment les trois 
 
 \paragraph{Le modèle}
 
-Il représente le comportement de l'application : traitements des données, interactions avec la base de données, etc. Il décrit les données manipulées par l'application et définit les méthodes d'accès. Son implémentation est fortement liée à l'\aorm\ utilisé.\footnote{Cf. section~\ref{section:outils_doctrine} concertant l'\aorm\ \adoctrine}
+Il représente le comportement de l'application : traitements des données, interactions avec la base de données, etc. Il décrit les données manipulées par l'application et définit les méthodes d'accès. Son implémentation est fortement liée à l'\aorm\ utilisé.\footnote{Cf. section~\ref{section:outils_doctrine} concernant l'\aorm\ \adoctrine}
 
 \paragraph{La vue}
 
@@ -49,4 +49,19 @@ Il prend en charge la gestion des événements de synchronisation pour mettre à
 
 \subsubsection{Fonctionnalités de \asf}
 
-TODO
+En plus de fournir de base une organisation respectant le modèle \amvc, le \afm\ \asf\ apporte les fonctionnalités suivantes :
+
+\begin{itemize}
+	\item développé en \aphp~5, il est entièrement orienté objet, ce qui facilite la redéfinition de comportements de base ;
+	\item il structure le développement via une architecture modulaire, dont les niveaux sont l'application, le module et le \aplugin ;
+	\item il intègre au choix deux \aorms\footnote{Cf. section~\ref{section:outils_doctrine} concernant l'\aorm\ \adoctrine}, \adoctrine\ et \apropel ;
+	\item flexible, la structure de l'application et son modèle peuvent être modifiés rapidement grâce à un système de génération de code accessible via la ligne de commande ;
+	\item la configuration du site développé se fait via des fichiers au format \ayml\footnote{\ayml\ est un langage de sérialisation de données. Sa syntaxe est relativement simple et efficace, et a été établie de sorte à ce qu'elle soit la plus lisible possible par des humains.\cite{yml}}, clairs et accessibles ;
+	\item il propose un système de \og routes \fg\ permettant de personnaliser à souhait les adresses des différentes pages du site ;
+	\item il dispose d'un système de gestion des formulaires permettant entre autres une validation sûre des données entrées ;
+	\item il fournit des facilités pour gérer la session de l'utilisateur, et offre des possibilités d'autorisation et de restriction d'accès basées sur un système de permissions ;
+	\item il possède un système de génération d'administration, dont le but est d'obtenir rapidement des interfaces d'administration de la base de don\-nées ;
+	\item il propose un système de cache\footnote{Par analogie avec la mémoire cache d'un ordinateur, un cache est un mécanisme mis en œuvre dans un logiciel afin de permettre une réutilisation rapide de données déjà traitées auparavant.\cite{cache}} natif permettant d'économiser de la charge serveur ;
+	\item il peut gérer l'internationalisation de contenu via des fichiers de traduction ;
+	\item il prend en charge le déploiement d'applications d'un serveur à un autre via une interface en ligne de commande.
+\end{itemize}
