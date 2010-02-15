@@ -1,4 +1,6 @@
 \subsection{\adoctrine}
 \label{section:outils_doctrine}
 
-TODO
+\adoctrine\footnote{\url{http://www.doctrine-project.org/}} est un outil \aos\ développé en \aphp\ permettant d'accéder aux différents enregistrements d'une base de données sous forme d'objets : de ce fait, on peut le qualifier d'\aorm, ou \aormfull. Reposant sur une couche d'abstraction de base de données, il a l'avantage de donner accès via la même interface à différents \asgbd\footnote{\asgbdfull}, tels que \amysql\ ou \apsql.
+
+Chez \asl, c'est l'\aorm\ utilisé par défaut avec \asf\ pour tous les projets les plus récents. Dans le code, c'est donc via cet outil que l'on effectue les requêtes à la base de données.
