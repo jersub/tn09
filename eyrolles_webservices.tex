@@ -1,7 +1,9 @@
 \subsection{Modélisation des \awss}
 \label{section:eyrolles_webservices}
 
-La fonctionnalité des \awss\ annoncée en partie~\ref{section:eyrolles_fct} se résume à permettre à l'application développée, le \alotdeux, de communiquer avec la partie de l'\aintranet\ déjà existante, le \alotun.
+Cette section présente un exemple typique de modélisation orientée objet.
+
+La fonctionnalité des \awss\ annoncée en partie~\ref{section:eyrolles_fct} se résume à permettre à l'application développée (le \alotdeux) de communiquer avec la partie de l'\aintranet\ déjà existante (le \alotun). 
 
 Techniquement, un \aws\ est une interface (\aapi) accessible via un réseau, qui permet d'exécuter des actions sur un système distant. Dans le cas d'\aey, c'est le \alotdeux\ qui va contacter l'interface du \alotun\footnote{Les \awss\ du \alotun\ sont développés en interne chez \aey.}, et jamais l'inverse. Les \awss\ du \alotdeux\ consistent alors à envoyer des données dans le bon format aux \awss\ du \alotun, et éventuellement de recevoir leur réponse. Les données sont échangées via le protocole \ahttp, et le format de données utilisé est le \ajson\footnote{\ajson\ (\textit{JavaScript Object Notation}) est un format de données textuel permettant de représenter de l'information structurée.~\cite{json}\\Exemple : \texttt{\{"auteur": \{"id": "1", "nom": "Jean Dupont"\}\}}}. La figure~\ref{figure:eyrolles_webservices_echange} illustre la façon dont les lots indépendants de l'\aintranet\ d'\aey\ communiquent.
 
